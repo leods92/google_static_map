@@ -88,8 +88,10 @@ class GoogleStaticMap
 
   # Use this to generate links.
   # This should always use HTTPS protocol to prevent unecessary redirections.
-  def href
-    "https://#{HREF_BASE_URL}/?" + href_options.to_query
+  # Option :directions is a boolean and determines whether Google Maps should
+  # ask for origin so it can give directions.
+  def href(options = {})
+    "https://#{HREF_BASE_URL}/?" + href_options(options[:directions]).to_query
   end
 
   private
@@ -117,13 +119,15 @@ class GoogleStaticMap
     })
   end
 
-  def href_options
-    nilless_hash({
+  def href_options(directions = false)
+    options = {
       z:   href_zoom || auto_href_zoom,
-      q:   coordinates || location_s,
       hl:  language,
       t:   kind
-    })
+    }
+    options[directions ? :daddr : :q] = coordinates || location_s
+
+    nilless_hash(options)
   end
 
   def marker
