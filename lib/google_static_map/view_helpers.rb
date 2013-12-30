@@ -7,7 +7,7 @@ class GoogleStaticMap
 
       image = image_tag map.src(protocol: request.protocol),
                         size: map.size,
-                        alt: I18n.t(:map),
+                        alt: I18n.t("google_static_map.map"),
                         class: "google-static-map"
 
       html_options = {
