@@ -5,16 +5,20 @@ class GoogleStaticMap
         raise "Expecting GoogleStaticMap instance"
       end
 
-      image = image_tag map.src(protocol: request.protocol),
-                        size: map.size,
-                        alt: I18n.t("google_static_map.map"),
-                        class: "google-static-map"
+      image_html_options = {
+        size: map.size,
+        alt: I18n.t("google_static_map.map"),
+        class: "google-static-map"
+      }.merge(options.delete(:image_html) || {})
 
-      html_options = {
+      image = image_tag map.src(protocol: request.protocol),
+                        image_html_options
+
+      link_html_options = {
         target: "_blank"
       }.merge(options.delete(:link_html) || {})
 
-      link_to image, map.href, html_options
+      link_to image, map.href, link_html_options
     end
   end
 end
