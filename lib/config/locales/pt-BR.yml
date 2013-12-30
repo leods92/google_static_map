@@ -1,0 +1,18 @@
+pt-BR:
+  google_static_map:
+    map: "mapa"
+  activemodel:
+    attributes:
+      google_static_map:
+        coordinates: "coordenadas"
+        size: "tamanho"
+        kind: "tipo"
+        sensor: "sensor?"
+        language: "língua"
+        scale: "densidade"
+        marker_color: "cor do pino"
+        location: "local"
+        key: "chave da API"
+        src_zoom: "zoom da imagem"
+        href_zoom: "zoom do link"
+        coordinates: "coordenadas"

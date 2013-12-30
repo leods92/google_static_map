@@ -1,0 +1,18 @@
+en:
+  google_static_map:
+    map: "map"
+  activemodel:
+    attributes:
+      google_static_map:
+        coordinates: "coordinates"
+        size: "size"
+        kind: "kind"
+        sensor: "sensor"
+        language: "language"
+        scale: "scale"
+        marker_color: "marker color"
+        location: "location"
+        key: "API key"
+        src_zoom: "image zoom level"
+        href_zoom: "link zoom level"
+        coordinates: "coordinates"
