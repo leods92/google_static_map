@@ -10,7 +10,7 @@ class GoogleStaticMap
   autoload :ViewHelpers, 'google_static_map/view_helpers'
 end
 
-I18n.load_path = Dir["#{lib_dir}/config/locales/*.yml"]
+I18n.load_path += Dir["#{lib_dir}/config/locales/*.yml"]
 I18n.enforce_available_locales = true
 I18n.backend.load_translations
 
