@@ -10,9 +10,6 @@ class GoogleStaticMap
 
     @@sensor = false
 
-    # Used when generating links to Google Maps.
-    @@language = ::I18n.locale
-
     # If you want to change the scale dinamically based on client's
     # screen pixel density, check Retinizr, it supports Google Maps Images.
     # http://github.com/leods92/Retinizr.

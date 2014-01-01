@@ -122,7 +122,7 @@ class GoogleStaticMap
   def href_options(directions = false)
     options = {
       z:   href_zoom || auto_href_zoom,
-      hl:  language,
+      hl:  language || auto_language,
       t:   kind
     }
     options[directions ? :daddr : :q] = coordinates || location_s
@@ -132,6 +132,10 @@ class GoogleStaticMap
 
   def marker
     "color:#{marker_color}|#{coordinates || location_s}"
+  end
+
+  def auto_language
+    I18n.locale
   end
 
   def auto_src_zoom

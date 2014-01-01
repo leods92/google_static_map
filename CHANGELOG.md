@@ -1,3 +1,6 @@
+# Version 0.1.3
+* Fixed bug that was preseting :en as default language in applications using this gem.
+
 # Version 0.1.2
 * Fixed bug where I18n load path was being entirely replaced, causing errors if there are other gems depending on I18n in the application.
 

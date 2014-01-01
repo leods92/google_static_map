@@ -86,6 +86,16 @@ describe GoogleStaticMap do
       map.href.should eq "https://maps.google.com/?hl=en-CA&q=Lonsdale+Ave%2C+100%2C+North+Vancouver%2C+Canada&t=m&z=17"
     end
 
+    it "uses set language" do
+      map.language = 'en'
+      map.href.should match(/hl=en/)
+    end
+
+    it "uses I18n locale as language if language is not set" do
+      I18n.stub locale: :"pt-BR"
+      map.href.should match(/hl=pt-BR/)
+    end
+
     it "returns url that makes Google ask for origin address and give directions" do
       map = GoogleStaticMap.new location: { city: "North Vancouver", state: "BC", address: "Lonsdale Ave, 100" }
       map.href(directions: true).should eq "https://maps.google.com/?daddr=Lonsdale+Ave%2C+100%2C+North+Vancouver%2C+Canada&hl=en&t=m&z=17"
