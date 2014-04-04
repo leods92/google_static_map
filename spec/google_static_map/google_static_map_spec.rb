@@ -114,7 +114,13 @@ describe GoogleStaticMap do
 
     it "returns hash if custom attributes were set" do
       map = GoogleStaticMap.new location: { city: "North Vancouver", state: "BC", address: "Lonsdale Ave, 100" }, src_zoom: 3
-      map.custom_attributes.should eq({ src_zoom: 3 })
+      map.custom_attributes.should eq({ "src_zoom" => 3 })
+    end
+
+    it "is hash with indifferent access" do
+      map = GoogleStaticMap.new location: { city: "North Vancouver", state: "BC", address: "Lonsdale Ave, 100" }, src_zoom: 3
+      map.custom_attributes[:src_zoom].should eq 3
+      map.custom_attributes["src_zoom"].should eq 3
     end
   end
 

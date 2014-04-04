@@ -68,7 +68,9 @@ class GoogleStaticMap
   # In case you want to save attributes that are specific to the
   # map instance this method will help you.
   def custom_attributes
-    CUSTOM_MAP_ATTRIBUTES.inject({}) do |hash, attribute|
+    base = {}.with_indifferent_access
+
+    CUSTOM_MAP_ATTRIBUTES.inject(base) do |hash, attribute|
       value = send(attribute)
 
       # Using #blank? as coordinates might be an empty array.
