@@ -54,7 +54,7 @@ class GoogleStaticMap
     location_info.slice! :country, :state_acronym, :city, :address
 
     # Merge defaults with input info and set them.
-    @location = Defaults.location.merge(location_info)
+    @location = Defaults.location.merge(location_info).with_indifferent_access
   end
 
   def src_zoom=(input)
@@ -99,6 +99,8 @@ class GoogleStaticMap
   private
 
   def initialize(attributes = {})
+    attributes = attributes.with_indifferent_access
+
     ATTRIBUTES.each do |attribute|
       default = Defaults.send(attribute) if Defaults.respond_to?(attribute)
       value = attributes[attribute] || default

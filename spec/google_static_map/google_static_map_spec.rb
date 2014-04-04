@@ -139,4 +139,16 @@ describe GoogleStaticMap do
       map.href_zoom.should eq 12
     end
   end
+
+  describe ".new" do
+    it "accepts symbols as keys" do
+      map = GoogleStaticMap.new size: "250x250"
+      map.size.should eq "250x250"
+    end
+
+    it "accepts strings as keys" do
+      map = GoogleStaticMap.new "size" => "250x250"
+      map.size.should eq "250x250"
+    end
+  end
 end
