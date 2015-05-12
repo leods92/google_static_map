@@ -24,10 +24,12 @@ describe GoogleStaticMap do
 
   it { should allow_value("").for(:coordinates) }
   it { should allow_value(nil).for(:coordinates) }
+  it { should allow_value("22.862197,-47.022192").for(:coordinates) }
+  it { should allow_value("+22.862197,47.022192").for(:coordinates) }
+  it { should allow_value("22.862197,47.022192").for(:coordinates) }
   it { should allow_value("-22.862197,-47.022192").for(:coordinates) }
   it { should allow_value("-22.862197, -47.022192").for(:coordinates) }
   it { should_not allow_value("-22,862197,-47,022192").for(:coordinates) }
-  it { should_not allow_value("22.862197,47.022192").for(:coordinates) }
 
   describe ".set_defaults" do
     it "changes GoogleStaticMap::Defaults attributes" do

@@ -41,7 +41,7 @@ class GoogleStaticMap
   validates :coordinates, format: {
     # TODO: improve this validation, x should not be
     # greater than 180 and y not greater than 90
-    with: /((\+|\-)[0-9]{1,3}\.[0-9]+,? ?){2}/,
+    with: /((\+|\-)?[0-9]{1,3}\.[0-9]+,? ?){2}/,
     allow_blank: true
   }
 

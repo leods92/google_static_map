@@ -1,3 +1,6 @@
+# Version 0.1.5
+* Fixed coordinates validation.
+
 # Version 0.1.4
 * Added indifferent access to #custom\_attributes's output. *Warning: if you store this in hstore be sure to call output #to_hash, otherwise you may get warnings.*
 * Allowed initializing input to have strings as keys.
